@@ -8,41 +8,68 @@
     <script src="jquery.js"></script>
     <script src="scripts.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 </head>
 <body>
 
-    <!-- First Name Input -->
-    <label for="empFirstName">First Name</label>
-    <input type="text" placeholder="First Name" id="empFirstName">
-
-    <!-- Last Name Input -->
-    <label for="empLastName">Last Name</label>
-    <input type="text" placeholder="Last Name" id="empLastName">
-
-    <!-- ID Number Input -->
-    <label for="empIDNum">ID Number</label>
-    <input type="text" placeholder="ID Number" id="empIDNum">
+    <div class="container">
     
-    <!-- Job Title input -->
-    <label for="empTitle">Job Title</label>
-    <input type="text" placeholder="Job Title" id="empTitle">
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1>Monthly Salary Calculator</h1>
+        </div>
 
-    <!-- Employee Salary Input -->
-    <label for="empSalary">Annual Salary</label>
-    <input type="text" placeholder="Annual Salary" id="empSalary">
+        <!-- Inputs -->
+        <div class="row row-cols-6">
+            <div class="col">
+                <!-- First Name Input -->
+                <label for="empFirstName">First Name:</label>
+                <input type="text" placeholder="First Name" id="empFirstName">
+            </div>
+            <div class="col">
+                <!-- Last Name Input -->
+                <label for="empLastName">Last Name:</label>
+                <input type="text" placeholder="Last Name" id="empLastName">
+            </div>
+            <div class="col">
+                <!-- ID Number Input -->
+                <label for="empIDNum">ID Number:</label>
+                <input type="text" placeholder="ID Number" id="empIDNum">
+            </div>
+            <div class="col">
+                <!-- Job Title input -->
+                <label for="empTitle">Job Title:</label>
+                <input type="text" placeholder="Job Title" id="empTitle">
+            </div>
+            <div class="col">
+                <!-- Employee Salary Input -->
+                <label for="empSalary">Annual Salary:</label>
+                <input type="text" placeholder="Annual Salary" id="empSalary">
+            </div>
+            <div class="col">
+                <!-- Submit Button -->
+                <button id="submitInfoBtn" class="btn btn-success">Submit</button>
+            </div>
+        </div>
 
-    <!-- Submit Button -->
-    <button id="submitInfoBtn">Submit</button>
+        <div>
+            <ul id="displayInfo">       
+            </ul>
+        </div>
 
-    <div>
-        <ul id="displayInfo">       
-        </ul>
-    </div>
+        <div id="displayMonthlyCost">
 
-    <div id="displayMonthlyCost">
+        </div>
 
     </div>
     
+
+
+
+    <!-- Bootstrap JS jQ -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
