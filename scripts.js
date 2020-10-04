@@ -3,6 +3,7 @@ console.log('Hello World');
 $(document).ready(onReady);
 
 let employeeInfo = [];
+let totalMonthCost = 0;
 
 function onReady(){
     $('#submitInfoBtn').on('click', getEmpInfo);
@@ -19,11 +20,10 @@ function getEmpInfo(){
         lName: $('#empLastName').val(),
         iD: $('#empIDNum').val(),
         title: $('#empTitle').val(),
-        salary: $('#empSalary').val()
+        salary: parseInt($('#empSalary').val())
     };
 
     if (empInfo.fName === '' || empInfo.lName === '' || empInfo.iD === '' || empInfo.title === '' || empInfo.salary === '') {
-        console.log('not entered');
         return false;
     }
     else{
@@ -41,11 +41,23 @@ function getEmpInfo(){
     }
 }
 
+
+
 function displayInfo(){
     el = $('#displayInfo');
     el.empty();
         for (let i = 0; i < employeeInfo.length; i++) {
-            el.append(`<li>${employeeInfo[i].fName} ${employeeInfo[i].lName} ${employeeInfo[i].iD} ${employeeInfo[i].title} ${employeeInfo[i].salary} <button class="delete">Delete</button></li>`);
+            el.append(
+                `<tr>
+                    <th scope="row">${employeeInfo[i].fName}</th>
+                    <th scope="row">${employeeInfo[i].lName}</th>
+                    <th scope="row">${employeeInfo[i].iD}</th>
+                    <th scope="row">${employeeInfo[i].title}</th>
+                    <th scope="row" id="empSal">$${employeeInfo[i].salary}</th>
+                    <th scope="row"><button class="delete btn btn-danger btn-sm">Delete</button></th>
+                </tr>`);
+                
+                $('#empSal').data('sal', employeeInfo[i].salary);
         }
 }
 
@@ -59,17 +71,23 @@ function monthlyCost(){
     }
     if (mCost <= 20000) {
         el.empty(mCost);
-        el.append(`<h3>$${mCost}</h3>`);   
+        el.append(`<h3 id="under20">Total Monthly Cost: $${mCost}</h3>`);   
     }
     else {
         el.empty(mCost);
-        el.append(`<h3 id="over20">$${mCost}</h3>`);
+        el.append(`<h3 id="over20">Total Monthly Cost: $${mCost}</h3>`);
     }
 }
 
 
 function deleteBtn(){
-    $(this).parent().remove();
-    console.log('deleted');
+    let subSal = $('#empSal').data(); //takes in the object data in empSal
+    subSal = subSal.sal; // makes subSal = to the salary
+    subSal = subSal * -1;
+    console.log(subSal);
+
     
+    
+    
+    $(this).parent().parent().remove();
 }

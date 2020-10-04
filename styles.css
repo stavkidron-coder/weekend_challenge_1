@@ -1,5 +1,11 @@
 #over20 {
-    background-color: red;
+    border: 2px solid red;
+    background-color: #ffc7c7;
+}
+
+#under20 {
+    border: 2px solid green;
+    background-color: #ccffd7;
 }
 
 .jumbotron {
@@ -10,4 +16,13 @@
 #submitInfoBtn {
     position: absolute;
     bottom: 0px;
+    width: 83%;
+}
+
+#table {
+    margin-top: 15px;
+}
+
+h3 {
+    text-align: center;
 }
