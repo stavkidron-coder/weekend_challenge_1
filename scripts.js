@@ -37,7 +37,7 @@ function getEmpInfo(){
         employeeInfo.push(empInfo);
 
         displayInfo();
-        monthlyCost();
+        calcMonthCost();
     }
 }
 
@@ -45,49 +45,55 @@ function getEmpInfo(){
 
 function displayInfo(){
     el = $('#displayInfo');
-    el.empty();
-        for (let i = 0; i < employeeInfo.length; i++) {
+    latestEmp = employeeInfo[employeeInfo.length -1];
             el.append(
                 `<tr>
-                    <th scope="row">${employeeInfo[i].fName}</th>
-                    <th scope="row">${employeeInfo[i].lName}</th>
-                    <th scope="row">${employeeInfo[i].iD}</th>
-                    <th scope="row">${employeeInfo[i].title}</th>
-                    <th scope="row" id="empSal">$${employeeInfo[i].salary}</th>
-                    <th scope="row"><button class="delete btn btn-danger btn-sm">Delete</button></th>
+                    <th scope="row">${latestEmp.fName}</th>
+                    <th scope="row">${latestEmp.lName}</th>
+                    <th scope="row">${latestEmp.iD}</th>
+                    <th scope="row">${latestEmp.title}</th>
+                    <th scope="row" id="empSal">$${latestEmp.salary}</th>
+                    <th scope="row">
+                        <button class="delete btn btn-danger btn-sm">Delete</button>
+                    </th>
                 </tr>`);
                 
-                $('#empSal').data('sal', employeeInfo[i].salary);
-        }
+                $("tr:last-child").data('sal', latestEmp.salary);
+}
+
+function calcMonthCost() {
+    let lastEmp = employeeInfo[employeeInfo.length -1];
+    totalMonthCost += lastEmp.salary / 12;
+    totalMonthCost = Math.ceil(totalMonthCost);
+
+    monthlyCost();
 }
 
 
 function monthlyCost(){
     let el = $('#displayMonthlyCost');
-    let mCost = 0;
-    for (let i = 0; i < employeeInfo.length; i++) {
-        mCost += Number(employeeInfo[i].salary) / 12;
-        mCost = Math.ceil(mCost);
-    }
-    if (mCost <= 20000) {
-        el.empty(mCost);
-        el.append(`<h3 id="under20">Total Monthly Cost: $${mCost}</h3>`);   
+
+    if (totalMonthCost <= 20000) {
+        el.empty(totalMonthCost);
+        el.append(`<h3 id="under20">Total Monthly Cost: $${totalMonthCost}</h3>`);   
     }
     else {
-        el.empty(mCost);
-        el.append(`<h3 id="over20">Total Monthly Cost: $${mCost}</h3>`);
+        el.empty(totalMonthCost);
+        el.append(`<h3 id="over20">Total Monthly Cost: $${totalMonthCost}</h3>`);
     }
 }
 
 
 function deleteBtn(){
-    let subSal = $('#empSal').data(); //takes in the object data in empSal
+
+    let tr = $(this).parent().parent();
+    
+    let subSal = $(this).parent().parent().data();
     subSal = subSal.sal; // makes subSal = to the salary
     subSal = subSal * -1;
-    console.log(subSal);
-
     
-    
-    
-    $(this).parent().parent().remove();
+    totalMonthCost += subSal / 12;
+    totalMonthCost = Math.ceil(totalMonthCost);
+    tr.remove();
+    monthlyCost();
 }
