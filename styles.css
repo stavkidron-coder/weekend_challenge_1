@@ -1,28 +1,60 @@
+body{
+    background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgb(199, 249, 255));
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 #over20 {
     border: 2px solid red;
     background-color: #ffc7c7;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #under20 {
     border: 2px solid green;
     background-color: #ccffd7;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .jumbotron {
     text-align: center;
     margin-top: 10px;
+    color: white;
+    background-image: linear-gradient(180deg, rgb(0, 187, 255), rgb(158, 221, 255)); !important;
+    font-family: 'Josefin Sans', sans-serif;
+    border-radius: 10px !important;
+    text-decoration: underline;
 }
 
 #submitInfoBtn {
     position: absolute;
     bottom: 0px;
     width: 83%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #table {
     margin-top: 15px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h3 {
     text-align: center;
 }
+
+#alert {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bodyContainer {
+    background-image: linear-gradient(180deg, rgba(0, 187, 255, 0.358), rgba(158, 221, 255, 0.173));
+    margin-top: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+  }

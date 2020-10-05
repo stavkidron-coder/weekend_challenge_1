@@ -23,9 +23,12 @@ function getEmpInfo(){
     };
 
     if (empInfo.fName === '' || empInfo.lName === '' || empInfo.iD === '' || empInfo.title === '' || empInfo.salary === '') {
+        $('#inputDiv').empty();
+        $('#inputDiv').append(`<div class="alert alert-danger" role="alert" id="alert">Not all inputs were flled</div>`) //alerts when not all inputs are filled
         return false;
     }
     else{
+        $('#inputDiv').empty(); // erases alert when all inputs are filled
         // Empty inputs
         $('#empFirstName').val('');
         $('#empLastName').val('');
