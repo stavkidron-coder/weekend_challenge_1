@@ -1,4 +1,3 @@
-console.log('Hello World');
 
 $(document).ready(onReady);
 
@@ -64,7 +63,7 @@ function displayInfo(){
 function calcMonthCost() {
     let lastEmp = employeeInfo[employeeInfo.length -1];
     totalMonthCost += lastEmp.salary / 12;
-    totalMonthCost = Math.ceil(totalMonthCost);
+    //totalMonthCost = Math.ceil(totalMonthCost);
 
     monthlyCost();
 }
@@ -93,7 +92,7 @@ function deleteBtn(){
     subSal = subSal * -1;
     
     totalMonthCost += subSal / 12;
-    totalMonthCost = Math.ceil(totalMonthCost);
+    //totalMonthCost = Math.ceil(totalMonthCost);
     tr.remove();
     monthlyCost();
 }
